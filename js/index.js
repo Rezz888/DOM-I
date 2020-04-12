@@ -54,21 +54,24 @@ nav[4].textContent = siteContent.nav["nav-item-5"];
 nav[5].textContent = siteContent.nav["nav-item-6"];
 
 /**  Create two new elements in nav */
-const newNav = document.querySelector("nav");
+let newItemNav = document.querySelector('nav');
 
-const newElement1 = document.createElement('a');
-newElement1.textContent = "Home";
-newElement1.href = "#";
-newElement1.style.color = "green";
+let newItem1 = document.createElement('a');
+newItem1.textContent = 'Concept';
+newItem1.href = '#';
+newItem1.style.color = 'green';
 
-const newElement2 = document.createElement('a');
-newElement2.textContent = "Blog";
-newElement2.href = "#";
-newElement2.style.color = "green";
+let newItem2 = document.createElement('a');
+newItem2.textContent = 'Blog';
+newItem2.href = '#';
+newItem2.style.color = 'green';
 
-/**Prepend and Append the two new elements*/
-newNav.prepend(newElement1);
-newNav.appendChild(newElement2);
+newItemNav.prepend(newItem1);
+newItemNav.appendChild(newItem2);
+
+
+
+
 
 
 /**Section_cta */
@@ -80,6 +83,8 @@ ctaButton.textContent = 'Get Started';
 
 let ctaImg = document.querySelector('#cta-img');
 ctaImg.src = 'img/header-img.png';
+
+mainHeader.innerHTML = siteContent['cta']['h1'].replace(/\s/g, "</br>");
 
 /**Section_Main-Content */
 
@@ -99,6 +104,15 @@ sectionContent[4].textContent = siteContent["main-content"]["vision-content"];
 
 const middleImg = document.querySelector("#middle-img");
 middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+/**Contact */
+const contactHeader = document.querySelector(".contact h4");
+contactHeader.textContent = siteContent.contact["contact-h4"];
+
+const contactContent = document.querySelectorAll(".contact p");
+contactContent[0].innerHTML = siteContent.contact["address"];
+contactContent[1].textContent = siteContent.contact["phone"];
+contactContent[2].textContent = siteContent.contact["email"];
 
 /**Footer */
 
