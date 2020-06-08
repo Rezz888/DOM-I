@@ -39,19 +39,23 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+// logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.src = siteContent["nav"]["img-src"];
 
 /**Header + Nav */
+
 const nav = document.querySelectorAll("nav a");
 
-nav.forEach(element => element.style.color = "green");
+nav.forEach(el => {
+  el.style.color = "green";
+})
 
-nav[0].textContent = siteContent.nav["nav-item-1"];
-nav[1].textContent = siteContent.nav["nav-item-2"];
-nav[2].textContent = siteContent.nav["nav-item-3"];
-nav[3].textContent = siteContent.nav["nav-item-4"];
-nav[4].textContent = siteContent.nav["nav-item-5"];
-nav[5].textContent = siteContent.nav["nav-item-6"];
+nav[0].textContent = siteContent["nav"]["nav-item-1"];
+nav[1].textContent = siteContent["nav"]["nav-item-2"];
+nav[2].textContent = siteContent["nav"]["nav-item-3"];
+nav[3].textContent = siteContent["nav"]["nav-item-4"];
+nav[4].textContent = siteContent["nav"]["nav-item-5"];
+nav[5].textContent = siteContent["nav"]["nav-item-6"];
 
 /**  Create two new elements in nav */
 let newItemNav = document.querySelector('nav');
@@ -61,28 +65,50 @@ newItem1.textContent = 'Concept';
 newItem1.href = '#';
 newItem1.style.color = 'green';
 
+// Stretch
+newItem1.addEventListener("click", ()=> {
+  newItem1.style.transform = 'scale(1.5)';
+  newItem1.style.transition = 'transform .7s';
+  newItem1.style.color = 'black';
+  
+  
+})
+newItem1.addEventListener('mouseleave', ()=>{
+  newItem1.style.transform = 'scale(1)';
+  newItem1.style.color = 'green';
+  
+})
+
+
 let newItem2 = document.createElement('a');
 newItem2.textContent = 'Blog';
 newItem2.href = '#';
 newItem2.style.color = 'green';
+// Stretch
+newItem2.addEventListener("click", ()=> {
+  newItem2.style.transform = 'scale(1.5)';
+  newItem2.style.transition = 'transform .7s';
+  newItem2.style.color = 'black';
+})
+newItem2.addEventListener('mouseleave', ()=>{
+  newItem2.style.transform = 'scale(1)';
+  newItem2.style.color = 'green';
+})
 
 newItemNav.prepend(newItem1);
 newItemNav.appendChild(newItem2);
 
 
-
-
-
-
 /**Section_cta */
 let mainHeader = document.querySelector('h1');
-mainHeader.textContent = 'DOM Is Awesome';
+mainHeader.textContent = siteContent['cta']['h1'];
+// mainHeader.style.width = "20vw";
 
 let ctaButton = document.querySelector('button');
-ctaButton.textContent = 'Get Started';
+ctaButton.textContent = siteContent['cta']['button'];
 
 let ctaImg = document.querySelector('#cta-img');
-ctaImg.src = 'img/header-img.png';
+ctaImg.src = siteContent["cta"]["img-src"];
 
 mainHeader.innerHTML = siteContent['cta']['h1'].replace(/\s/g, "</br>");
 
@@ -110,7 +136,7 @@ const contactHeader = document.querySelector(".contact h4");
 contactHeader.textContent = siteContent.contact["contact-h4"];
 
 const contactContent = document.querySelectorAll(".contact p");
-contactContent[0].innerHTML = siteContent.contact["address"];
+contactContent[0].textContent = siteContent.contact["address"];
 contactContent[1].textContent = siteContent.contact["phone"];
 contactContent[2].textContent = siteContent.contact["email"];
 
@@ -118,3 +144,21 @@ contactContent[2].textContent = siteContent.contact["email"];
 
 const footer = document.querySelector("footer p");
 footer.textContent = siteContent.footer["copyright"];
+
+/**Stretch */
+// All the anchor tags in the nav bar are selected as 'nav' above.
+nav.forEach(el => {
+  el.addEventListener('click', (event) => {
+    console.log(event);
+    el.style.transform = 'scale(1.5)';
+    el.style.transition = 'transform .7s';
+    el.style.color = "black";
+    
+    })
+
+    el.addEventListener('mouseleave', (event) => {
+      el.style.transform = 'scale(1)';
+      el.style.color = "green";
+  })
+  
+})
